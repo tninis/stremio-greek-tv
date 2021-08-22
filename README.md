@@ -1,0 +1,34 @@
+## stremio-greek-tv
+Greek Live TV Stremio addon
+
+## Installation
+### Manual 
+Just copy and paste the [Manifest](https://stremio-greek-tv.herokuapp.com/manifest.json) URL on "Search Addon" search box on stremio.
+
+### Community Addons
+Seach "GreekTV" on the stremio community addons.
+
+
+## Current TV Channels
+- ERT 1
+- ERT 2
+- ERT 3
+- Vouli
+- Alpha
+- Star
+- Open
+- Mega
+- Skai
+- One Channel
+- Groovy
+- Kontra
+
+## Todo
+- [ ] Add more channels
+
+## Fun to implement 
+Maybe there will be an implementation for TV program , stremio does not support this functionality , but maybe other field (on metadata object) can be used to display data, as long as are update frequently and not cached.
+
+
+
+
