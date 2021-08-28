@@ -19,7 +19,7 @@ namespace stremio_greek_tv.Controllers
             Meta[] metaPreviews = new Meta[0];
 
             if(type == "tv")
-                metaPreviews = ChannelsData.GetChannelsCatalog($"{this.Request.Scheme}://{this.Request.Host}/staticdata");  
+                metaPreviews = ChannelsData.GetChannelsCatalog();  
 
             return new JsonResult(new { metas = metaPreviews });
         }  

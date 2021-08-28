@@ -7,48 +7,45 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="m3uParser.NET" Version="1.0.17" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Images\alpha.png">
+    <None Update="Resources\Images\alpha.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\ert1.png">
+    <None Update="Resources\Images\ert1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\ert2.png">
+    <None Update="Resources\Images\ert2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\ert3.png">
+    <None Update="Resources\Images\ert3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\groovy.png">
+    <None Update="Resources\Images\groovy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\kontra.png">
+    <None Update="Resources\Images\kontra.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\mega.png">
+    <None Update="Resources\Images\mega.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\one.png">
+    <None Update="Resources\Images\one.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\open.png">
+    <None Update="Resources\Images\open.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\skai.png">
+    <None Update="Resources\Images\skai.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\star.png">
+    <None Update="Resources\Images\star.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images\vouli.png">
+    <None Update="Resources\Images\vouli.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using m3uParser;
+using Microsoft.AspNetCore.Http;
 using stremio_greek_tv.Models;
 using System;
 using System.Collections.Generic;
@@ -9,22 +10,27 @@ namespace stremio_greek_tv.Data
 {
     public static class ChannelsData
     {       
-        public static Meta[] GetChannelsCatalog(string baseUrl)
-        {          
+        public static Meta[] GetChannelsCatalog()
+        {       
+            
+
+            var simpleVodM3u = M3U.ParseFromUrlAsync(Constants.TVChannelsFileUrl);
+
+
             //Image loads on stremio only on https 
             return new Meta[] {
-                new Meta { Id =$"{Constants.IdPrefix}_ert1", Name="ERT 1", Type="tv" ,Poster = $"{baseUrl}/ert1.png"  },
-                new Meta { Id =$"{Constants.IdPrefix}_ert2", Name="ERT 2", Type="tv" ,Poster = $"{baseUrl}/ert2.png"  },
-                new Meta { Id =$"{Constants.IdPrefix}_ert3", Name="ERT 3", Type="tv" ,Poster = $"{baseUrl}/ert3.png"  },
-                new Meta { Id =$"{Constants.IdPrefix}_vouli", Name="VOULI TV", Type="tv" ,Poster = $"{baseUrl}/vouli.png"  },
-                new Meta { Id =$"{Constants.IdPrefix}_alpha", Name="ALPHA", Type="tv" ,Poster = $"{baseUrl}/alpha.png"  },
-                new Meta { Id =$"{Constants.IdPrefix}_star", Name="STAR", Type="tv" ,Poster = $"{baseUrl}/star.png"  },
-                new Meta { Id =$"{Constants.IdPrefix}_open", Name="OPEN", Type="tv" ,Poster = $"{baseUrl}/open.png"  },
-                new Meta { Id =$"{Constants.IdPrefix}_mega", Name="MEGA", Type="tv" ,Poster = $"{baseUrl}/mega.png" },
-                new Meta { Id =$"{Constants.IdPrefix}_skai", Name="SKAI", Type="tv" ,Poster = $"{baseUrl}/skai.png" },
-                new Meta { Id =$"{Constants.IdPrefix}_one", Name="ONE", Type="tv" ,Poster = $"{baseUrl}/one.png"  },
-                new Meta { Id =$"{Constants.IdPrefix}_groovy", Name="GROOVY", Type="tv" ,Poster = $"{baseUrl}/groovy.png"  },               
-                new Meta { Id =$"{Constants.IdPrefix}_kontra", Name="KONTRA", Type="tv" ,Poster = $"{baseUrl}/kontra.png"  }               
+                new Meta { Id =$"{Constants.IdPrefix}_ert1", Name="ERT 1", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/ert1.png"  },
+                new Meta { Id =$"{Constants.IdPrefix}_ert2", Name="ERT 2", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/ert2.png"  },
+                new Meta { Id =$"{Constants.IdPrefix}_ert3", Name="ERT 3", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/ert3.png"  },
+                new Meta { Id =$"{Constants.IdPrefix}_vouli", Name="VOULI TV", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/vouli.png"  },
+                new Meta { Id =$"{Constants.IdPrefix}_alpha", Name="ALPHA", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/alpha.png"  },
+                new Meta { Id =$"{Constants.IdPrefix}_star", Name="STAR", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/star.png"  },
+                new Meta { Id =$"{Constants.IdPrefix}_open", Name="OPEN", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/open.png"  },
+                new Meta { Id =$"{Constants.IdPrefix}_mega", Name="MEGA", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/mega.png" },
+                new Meta { Id =$"{Constants.IdPrefix}_skai", Name="SKAI", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/skai.png" },
+                new Meta { Id =$"{Constants.IdPrefix}_one", Name="ONE", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/one.png"  },
+                new Meta { Id =$"{Constants.IdPrefix}_groovy", Name="GROOVY", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/groovy.png"  },               
+                new Meta { Id =$"{Constants.IdPrefix}_kontra", Name="KONTRA", Type="tv" ,Poster = $"{Constants.ImagesBaseUrl}/kontra.png"  }               
                               
             };
         }
