@@ -14,7 +14,7 @@ namespace stremio_greek_tv.Controllers
         private static readonly Manifest manifest = new Manifest
         {
             Id = "tninis.greek.tv.channels",
-            Version = "0.0.2",
+            Version = "1.0.0",
             Name = "Greek TV",
             Description = "Greek TV Stremio Add-on",
             Resources = new object[] {
