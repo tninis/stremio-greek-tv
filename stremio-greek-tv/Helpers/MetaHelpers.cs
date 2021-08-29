@@ -9,13 +9,13 @@ namespace stremio_greek_tv.Helpers
     {
         public static string CreateMetaId(string tvgId)
         {
-            return $"{Constants.IdPrefix}_{tvgId}";
+            return $"{Constants.IdPrefix}_{tvgId.Replace(".","_")}";
         }
 
         public static string GePureTvgId(string id, string separator = "_")
         {
             var splitId = id.Split(separator);            
-            return splitId.Length == 2 ? splitId[1] : "";
-        }
+            return splitId.Length == 2 ? splitId[1].Replace(".","_") : "";
+        }        
     }
 }
