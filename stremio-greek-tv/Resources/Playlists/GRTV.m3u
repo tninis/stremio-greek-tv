@@ -23,3 +23,5 @@ https://web.onair-radio.eu/groovytv/groovytv/chunklist_w1859804103.m3u8
 https://kontralive.siliconweb.com/live/kontratv/chunklist.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="Voyli.gr" tvg-name="VOULI" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/vouli.png",VOULI
 https://streamer-cache.grnet.gr/parliament/hls/webtv_1280_960x540/index.m3u8
+#EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="ERTWorld.gr" tvg-name="ERT World" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/ert3.png",ERT World
+https://ert-live-bcbs15228.siliconweb.com/media/ert_world/ert_worldmedium.m3u8
