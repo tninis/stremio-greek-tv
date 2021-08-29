@@ -31,7 +31,8 @@ namespace stremio_greek_tv.Controllers
             Catalogs  = new Catalog[]
             {
                 new Catalog{ Type = "tv", Id = "GreekTV", Name = "GreekTV" }
-            } 
+            } ,
+            IdPrefixes = new string []{ }
         };
 
         [Route("manifest.json")]
