@@ -40,14 +40,7 @@ namespace stremio_greek_tv
 
             app.UseCors(builder => builder.AllowAnyOrigin()
                                 .AllowAnyHeader()
-                                .AllowAnyMethod());
-
-             app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(
-                    Path.Combine(env.ContentRootPath, "Images")),
-                RequestPath = "/staticdata"
-            });
+                                .AllowAnyMethod());           
 
             app.UseRouting();            
 

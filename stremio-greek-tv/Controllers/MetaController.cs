@@ -17,7 +17,7 @@ namespace stremio_greek_tv.Controllers
         public JsonResult Get(string type, string id)
         {
             var dictId = id.Split('.')[0];
-            Meta meta =  ChannelsData.GetChannelsCatalog().Where(r=>r.Id == dictId).FirstOrDefault();
+            Meta meta =  ChannelsData.GetChannelsCatalog().Result.Where(r=>r.Id == dictId).FirstOrDefault();
             return new JsonResult(new { meta = meta });
         }       
     }

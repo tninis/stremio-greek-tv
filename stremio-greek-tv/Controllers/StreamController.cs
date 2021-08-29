@@ -18,7 +18,7 @@ namespace stremio_greek_tv.Controllers
         {
             var dictId = id.Split('.')[0];
 
-            Stream[] res = ChannelsData.GetChannelStreams().GetValueOrDefault(dictId);
+            Stream[] res = ChannelsData.GetChannelStreams().Result.GetValueOrDefault(dictId);
 
             return new JsonResult(new { streams = res });
         }
