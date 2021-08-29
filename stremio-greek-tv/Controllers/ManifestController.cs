@@ -32,7 +32,7 @@ namespace stremio_greek_tv.Controllers
             {
                 new Catalog{ Type = "tv", Id = "GreekTV", Name = "GreekTV" }
             } ,
-            IdPrefixes = new string []{ }
+            IdPrefixes = new string []{ Constants.IdPrefix }
         };
 
         [Route("manifest.json")]
