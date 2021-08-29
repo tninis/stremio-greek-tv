@@ -25,3 +25,11 @@ https://kontralive.siliconweb.com/live/kontratv/chunklist.m3u8
 https://streamer-cache.grnet.gr/parliament/hls/webtv_1280_960x540/index.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="ERTWorld.gr" tvg-name="ERT World" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/ertworld.png",ERT World
 https://ert-live-bcbs15228.siliconweb.com/media/ert_world/ert_worldmedium.m3u8
+#EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="ERTSports.gr" tvg-name="ERT Sports" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/ertsports.png",ERT SPORTS
+https://ert-live-bcbs15228.siliconweb.com/media/ert_sports/ert_sports_3Mbps.m3u8
+#EXTINF:5042 group-title="CINEMA" tvg-id="SuperChannelHD.gr" tvg-name="SUPER CHANNEL" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/default.png",SUPER CHANNEL HD
+https://vdo.alphaserver.gr:3587/hybrid/play.m3u8
+#EXTINF:-1 group-title="CINEMA" tvg-id="NetmaxTV.gr" tvg-name="NETMAX TV" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/netmax.png",NETMAX TV
+http://live.netmaxtv.com:8080/live/live/chunklist_w476811449.m3u8
+#EXTINF:-1 group-title="CINEMA" tvg-id="GreekCinema.gr" tvg-name="GREEK CINEMA" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/greekcinema.png",GREEK CINEMA
+https://vdo.alphaserver.gr:3613/hybrid/play.m3u8
