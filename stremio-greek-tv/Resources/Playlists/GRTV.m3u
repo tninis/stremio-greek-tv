@@ -1,10 +1,10 @@
 #EXTM3U
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="ERT1.gr" tvg-name="ERT 1" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/ert1.png",ERT1 HD
-http://ert-live-bcbs15228.siliconweb.com/media/ert_1/ert_1_3Mbps.m3u8
+https://ert-live-bcbs15228.siliconweb.com/media/ert_1/ert_1_2.5Mbps.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="ERT2.gr" tvg-name="ERT 2" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/ert2.png",ERT2 HD
-http://ert-live-bcbs15228.siliconweb.com/media/ert_2/ert_2_3Mbps.m3u8
+https://ert-live-bcbs15228.siliconweb.com/media/ert_2/ert_2_2.5Mbps.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="ERT3.gr" tvg-name="ERT 3" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/ert3.png",ERT3 HD
-http://ert-live-bcbs15228.siliconweb.com/media/ert_3/ert_3_2Mbps.m3u8
+https://ert-live-bcbs15228.siliconweb.com/media/ert_3/ert_3_2.5Mbps.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="AlphaTV.gr" tvg-name="ALPHA" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/alpha.png",ALPHA
 https://alphatvlive.siliconweb.com/1/Y2Rsd1lUcUVoajcv/UVdCN25h/hls/f1yvzq9v/2728/chunklist.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="Ant1.gr" tvg-name="ANT1" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/ant1.png",ANT1
@@ -14,7 +14,7 @@ https://antennaamdnoenc.akamaized.net/maktv_akamai/abr/playlist.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="StarChannel.gr" tvg-name="STAR" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/star.png",STAR
 https://livestar.siliconweb.com/media/star1/star1mediumhd.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="OpenTV.gr" tvg-name="OPEN" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/open.png",OPEN
-https://liveopencloud.siliconweb.com/1/ZlRza2R6L2tFRnFJ/eWVLSlQx/hls/ngpkvlgw/2728/chunklist.m3u8
+https://liveopencloud.siliconweb.com/1/ZlRza2R6L2tFRnFJ/eWVLSlQx/hls/fbp5lvnb/2728/chunklist.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="MegaTV.gr" tvg-name="MEGA" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/mega.png",MEGA
 https://c98db5952cb54b358365984178fb898a.msvdn.net/live/S86713049/gonOwuUacAxM/playlist.m3u8
 #EXTINF:-1 group-title="ΠΑΝΕΛΛΑΔΙΚΑ" tvg-id="SKAI.gr" tvg-name="SKAI" tvg-logo="https://raw.githubusercontent.com/tninis/stremio-greek-tv/master/stremio-greek-tv/Resources/Images/skai.png",SKAI
