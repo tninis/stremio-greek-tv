@@ -1,6 +1,7 @@
 ﻿using m3uParser;
 using Microsoft.AspNetCore.Http;
 using stremio_greek_tv.Helpers;
+using stremio_greek_tv.Interfaces;
 using stremio_greek_tv.Models;
 using System;
 using System.Collections.Generic;
@@ -10,54 +11,58 @@ using System.Threading.Tasks;
 namespace stremio_greek_tv.Data
 {
     public static class ChannelsData
-    {       
-        public async static Task<Meta[]> GetChannelsCatalog()
-        {       
+    { 
+        public async static Task<CatalogResult> GetChannelsCatalogAsync(IStreamRetriever m3uRetriever)
+        {
             var channels = new List<Meta>();
-            try
-            {
-                var channelsPlaylist = await M3U.ParseFromUrlAsync(Constants.TVChannelsFileUrl);
+          
+            var channelsPlaylist = await m3uRetriever.GetStreams();
 
-                foreach (var media in channelsPlaylist.Medias)
+            foreach (var media in channelsPlaylist.Medias)
+            {
+                var channelInternalId = MetaHelpers.CreateMetaId(media.Attributes.TvgId);
+                channels.Add(new Meta
                 {
-                    var channelInternalId = MetaHelpers.CreateMetaId(media.Attributes.TvgId);
-                    channels.Add(new Meta 
-                    {
-                        Id = channelInternalId,
-                        Name = media.Title.RawTitle,
-                        Type = "tv",
-                        Poster = media.Attributes.TvgLogo
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                //TODO : Log Exception
-                              
-            }
+                    Id = channelInternalId,
+                    Name = media.Title.RawTitle,
+                    Type = "tv",
+                    Poster = media.Attributes.TvgLogo
+                });
+            }            
 
-            return channels.ToArray();
+            return new CatalogResult { Metas = channels.ToArray() };
         }
 
-        public async static Task<Dictionary<string, Stream[]>> GetChannelStreams()
+        public async static Task<MetaResult> GetChannelMetaAsync(IStreamRetriever m3uRetriever,string channelId)
         {
-            var channelsStreams = new Dictionary<string, Stream[]>();
-            try
+            var channelMeta = new Meta();
+            var channelsPlaylist = await m3uRetriever.GetStreams();
+            var channel = channelsPlaylist?.Medias?.Where(r => MetaHelpers.CreateMetaId(r.Attributes.TvgId) == channelId)?.FirstOrDefault();
+
+            if (channel is not null)
             {
-                var channelsPlaylist = await M3U.ParseFromUrlAsync(Constants.TVChannelsFileUrl);
-                foreach (var media in channelsPlaylist.Medias)
+                var channelInternalId = MetaHelpers.CreateMetaId(channel.Attributes.TvgId);
+                channelMeta = new Meta
                 {
-                    var channelInternalId = MetaHelpers.CreateMetaId(media.Attributes.TvgId);
-                    channelsStreams.Add(channelInternalId, new Stream[] { new Stream { Title = media.Title.RawTitle, Url = media.MediaFile }});
-                }
-            }
-            catch (Exception ex)
-            {
-                //TODO : Log Exception
-                              
+                    Id = channelInternalId,
+                    Name = channel.Title.RawTitle,
+                    Type = "tv",
+                    Poster = channel.Attributes.TvgLogo
+                };
             }
 
-            return channelsStreams;
+            return new MetaResult { Meta = channelMeta };
+        }
+
+        public async static Task<StreamResult> GetChannelStreamsAsync(IStreamRetriever m3uRetriever, string channelId)
+        {  
+            var channelsPlaylist = await m3uRetriever.GetStreams();
+
+            var channelsStreams = channelsPlaylist.Medias.Where(r => MetaHelpers.CreateMetaId(r.Attributes.TvgId) == channelId)
+                .Select( v => new Stream { Title = v.Title.RawTitle, Url = v.MediaFile } ).ToArray(); 
+
+
+            return new StreamResult { Streams =  channelsStreams };
         }
     }
 }
