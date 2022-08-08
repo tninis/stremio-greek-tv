@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "name": "Greek TV Dev",
   "description": "Greek TV Stremio Add-on",
+  "logo": "https://raw.githubusercontent.com/tninis/greek-tv-resources/main/Images/logo.png",
   "types": [
     "tv"
   ],
