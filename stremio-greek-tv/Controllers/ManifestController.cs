@@ -1,45 +1,46 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using stremio_greek_tv.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace stremio_greek_tv.Controllers
 {    
     [ApiController]
     public class ManifestController : ControllerBase
     {
-        private static readonly Manifest manifest = new Manifest
+        private readonly ILogger<ManifestController> _logger;
+        private readonly IWebHostEnvironment _env;
+
+        public ManifestController(ILogger<ManifestController> logger, IWebHostEnvironment env)
         {
-            Id = "tninis.greek.tv.channels",
-            Version = "1.0.0",
-            Name = "Greek TV",
-            Description = "Greek TV Stremio Add-on",
-            Resources = new object[] {
-                "catalog",
-                 new {
-                        Name = "meta",
-                        Types = new string []{"tv"},
-                        IdPrefixes = new string []{ Constants.IdPrefix }
-                    },
-                "meta",
-                "stream"
-            },
-            Types = new string[] { "tv" },
-            Catalogs  = new Catalog[]
-            {
-                new Catalog{ Type = "tv", Id = "GreekTV", Name = "GreekTV" }
-            } ,
-            IdPrefixes = new string []{ Constants.IdPrefix }
-        };
+            _logger = logger;
+            _env = env;
+        }
 
         [Route("manifest.json")]
         [HttpGet]
         public JsonResult Get()
         {
-            return new JsonResult(manifest);
+            return new JsonResult(GetManifest());
+        }
+
+        private Manifest GetManifest()
+        {
+            var manifestPath = Path.Combine(AppContext.BaseDirectory, $"manifest.{_env.EnvironmentName}.json");
+            using (StreamReader r = new StreamReader(manifestPath))
+            {
+                string json = r.ReadToEnd();
+                return JsonConvert.DeserializeObject<Manifest>(json);
+            }
         }
     }
 }

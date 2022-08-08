@@ -11,4 +11,9 @@ namespace stremio_greek_tv.Models
         public string Id { get; set; }
         public string Name { get; set; }
     }
+
+    public class CatalogResult
+    {
+        public Meta[] Metas { get; set; }
+    }
 }
