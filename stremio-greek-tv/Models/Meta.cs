@@ -14,4 +14,8 @@ namespace stremio_greek_tv.Models
         public string Description  { get; set; }
         
     }
+    public class MetaResult
+    {
+        public Meta Meta { get; set; }
+    }
 }

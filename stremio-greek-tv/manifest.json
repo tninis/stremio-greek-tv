@@ -1,0 +1,25 @@
+{
+  "id": "tninis.greek.tv.channels",
+  "version": "2.0.0",
+  "name": "Greek TV",
+  "description": "Greek TV Stremio Add-on",
+  "logo": "https://raw.githubusercontent.com/tninis/greek-tv-resources/main/Images/logo.png",
+  "types": [
+    "tv"
+  ],
+  "catalogs": [
+    {
+      "type": "tv",
+      "id": "GreekTV",
+      "name": "GreekTV"
+    }
+  ],
+  "resources": [
+    "catalog",
+    "meta",
+    "stream"
+  ],
+  "idPrefixes": [
+    "grtv"
+  ]
+}
