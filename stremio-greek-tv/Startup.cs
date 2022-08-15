@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using stremio_greek_tv.Helpers;
 using stremio_greek_tv.Interfaces;
 using stremio_greek_tv.StreamRetrievers;
 using System;
@@ -23,6 +24,7 @@ namespace stremio_greek_tv
         {
             Configuration = configuration;
             _env = env;
+            ManifestHelpers.Initialize(_env);
         }
 
         public IConfiguration Configuration { get; }
@@ -32,8 +34,7 @@ namespace stremio_greek_tv
         {
             services.AddCors();
             services.AddControllers();
-            services.AddMemoryCache();
-            var settings = Configuration.GetSection("description");
+            services.AddMemoryCache();           
             if (_env.IsDevelopment())
             {
                 services.AddSingleton<IStreamRetriever>(sp =>

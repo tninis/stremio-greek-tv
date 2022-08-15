@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using stremio_greek_tv.Helpers;
 using stremio_greek_tv.Models;
 using System;
 using System.Collections.Generic;
@@ -30,17 +31,8 @@ namespace stremio_greek_tv.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            return new JsonResult(GetManifest());
+            return new JsonResult(ManifestHelpers.GetManifest());
         }
-
-        private Manifest GetManifest()
-        {
-            var manifestPath = Path.Combine(AppContext.BaseDirectory, $"manifest.{_env.EnvironmentName}.json");
-            using (StreamReader r = new StreamReader(manifestPath))
-            {
-                string json = r.ReadToEnd();
-                return JsonConvert.DeserializeObject<Manifest>(json);
-            }
-        }
+        
     }
 }

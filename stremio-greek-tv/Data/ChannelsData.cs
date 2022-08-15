@@ -6,6 +6,7 @@ using stremio_greek_tv.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace stremio_greek_tv.Data
@@ -26,7 +27,8 @@ namespace stremio_greek_tv.Data
                     Id = channelInternalId,
                     Name = media.Title.RawTitle,
                     Type = "tv",
-                    Poster = media.Attributes.TvgLogo
+                    Poster = media.Attributes.TvgLogo,
+                    Description = media.Title.RawTitle
                 });
             }            
 
@@ -47,7 +49,8 @@ namespace stremio_greek_tv.Data
                     Id = channelInternalId,
                     Name = channel.Title.RawTitle,
                     Type = "tv",
-                    Poster = channel.Attributes.TvgLogo
+                    Poster = channel.Attributes.TvgLogo,
+                    Description = channel.Title.RawTitle
                 };
             }
 
@@ -59,7 +62,7 @@ namespace stremio_greek_tv.Data
             var channelsPlaylist = await m3uRetriever.GetStreams();
 
             var channelsStreams = channelsPlaylist.Medias.Where(r => MetaHelpers.CreateMetaId(r.Attributes.TvgId) == channelId)
-                .Select( v => new Stream { Title = v.Title.RawTitle, Url = v.MediaFile } ).ToArray(); 
+                .Select( v => new Stream { Title = v.Title.RawTitle, Url = v.MediaFile, Name = v.Title.RawTitle } ).ToArray(); 
 
 
             return new StreamResult { Streams =  channelsStreams };

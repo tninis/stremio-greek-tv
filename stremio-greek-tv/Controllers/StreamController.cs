@@ -24,7 +24,8 @@ namespace stremio_greek_tv.Controllers
         [HttpGet("{type}/{id}")]
         public async Task<StreamResult> Get(string type, string id)
         {
-            return  await ChannelsData.GetChannelStreamsAsync(_m3uRetriever, MetaHelpers.GetTvId(id));
+            var streams = await ChannelsData.GetChannelStreamsAsync(_m3uRetriever, MetaHelpers.GetTvId(id));
+            return streams;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace stremio_greek_tv.Helpers
     {
         public static string CreateMetaId(string tvgId)
         {
-            return $"{Constants.IdPrefix}_{tvgId.Replace(".","_")}";
+            return $"{ManifestHelpers.IdPrefix}_{tvgId.Replace(".","_")}";
         }
 
         public static string GePureTvgId(string id, string separator = "_")
@@ -21,6 +22,6 @@ namespace stremio_greek_tv.Helpers
         public static string GetTvId(string id)
         {
             return id.Split('.')[0];
-        }
+        }      
     }
 }

@@ -28,14 +28,14 @@ namespace stremio_greek_tv.Controllers
         public async Task<MetaResult> Get(string type, string id)
         {
             var dictId = MetaHelpers.GetTvId(id);
-            
-            return await _memoryCache.GetOrCreateAsync(
+            var meta = await _memoryCache.GetOrCreateAsync(
                         dictId,
                         cacheEntry =>
                         {
                             cacheEntry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5);
                             return ChannelsData.GetChannelMetaAsync(_m3uRetriever, dictId);
                         });
+            return meta;
         }       
     }
 }
