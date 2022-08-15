@@ -32,7 +32,7 @@ namespace stremio_greek_tv.Controllers
                                 CacheConstants.CatalogCacheKey,
                                 cacheEntry =>
                                 {                                    
-                                    cacheEntry.SlidingExpiration = TimeSpan.FromMinutes(5);
+                                    cacheEntry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5);
                                     return ChannelsData.GetChannelsCatalogAsync(_m3uRetriever);
                                 });
             }

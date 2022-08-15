@@ -16,6 +16,11 @@ namespace stremio_greek_tv.Helpers
         {
             var splitId = id.Split(separator);            
             return splitId.Length == 2 ? splitId[1].Replace(".","_") : "";
-        }        
+        }
+
+        public static string GetTvId(string id)
+        {
+            return id.Split('.')[0];
+        }
     }
 }

@@ -16,6 +16,5 @@ namespace stremio_greek_tv
     class CacheConstants
     {       
         public const string CatalogCacheKey = "catalogs_tv";
-        public const string MetaCacheKey = "meta_tv";
     }
 }

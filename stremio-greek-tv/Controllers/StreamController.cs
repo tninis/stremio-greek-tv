@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using stremio_greek_tv.Data;
+using stremio_greek_tv.Helpers;
 using stremio_greek_tv.Interfaces;
 using stremio_greek_tv.Models;
 using System;
@@ -23,8 +24,7 @@ namespace stremio_greek_tv.Controllers
         [HttpGet("{type}/{id}")]
         public async Task<StreamResult> Get(string type, string id)
         {
-            var dictId = id.Split('.')[0];
-            return  await ChannelsData.GetChannelStreamsAsync(_m3uRetriever,dictId);
+            return  await ChannelsData.GetChannelStreamsAsync(_m3uRetriever, MetaHelpers.GetTvId(id));
         }
     }
 }
