@@ -3,7 +3,7 @@ Greek Live TV Stremio addon
 
 ## Installation
 ### Manual 
-Just copy and paste the [Manifest]([https://stremiogreektv.bsite.net/manifest.json](https://stremio-greek-tv-latest.onrender.com/manifest.json)) URL on "Search Addon" search box on stremio.
+Just copy and paste the [Manifest](https://stremio-greek-tv-latest.onrender.com/manifest.json) URL on "Search Addon" search box on stremio.
 
 ### Community Addons
 Seach "GreekTV" on the stremio community addons.
