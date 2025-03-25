@@ -1,7 +1,6 @@
 ﻿using m3uParser;
 using m3uParser.Model;
 using stremio_greek_tv.Interfaces;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace stremio_greek_tv.StreamRetrievers

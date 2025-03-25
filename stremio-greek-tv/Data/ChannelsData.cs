@@ -1,12 +1,8 @@
-﻿using m3uParser;
-using Microsoft.AspNetCore.Http;
-using stremio_greek_tv.Helpers;
+﻿using stremio_greek_tv.Helpers;
 using stremio_greek_tv.Interfaces;
 using stremio_greek_tv.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace stremio_greek_tv.Data

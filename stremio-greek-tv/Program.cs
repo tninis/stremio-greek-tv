@@ -1,26 +1,51 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using stremio_greek_tv;
+using stremio_greek_tv.Helpers;
+using stremio_greek_tv.Interfaces;
+using stremio_greek_tv.StreamRetrievers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace stremio_greek_tv
+var builder = WebApplication.CreateBuilder(args);
+ManifestHelpers.Initialize(builder.Environment);
+builder.Services.AddCors();
+builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
+
+if (builder.Environment.IsDevelopment())
 {
-    public class Program
+    builder.Services.AddSingleton<IStreamRetriever>(sp =>
     {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)                
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>().UseKestrel();
-                });
-    }
+        var fullPath = Path.Combine(AppContext.BaseDirectory, Constants.TVChannelsFilePath);
+        return ActivatorUtilities.CreateInstance<FileStreamRetriever>(sp, fullPath);
+    });
 }
+else
+{
+    builder.Services.AddSingleton<IStreamRetriever>(sp =>
+    {
+        return ActivatorUtilities.CreateInstance<URLStreamRetriever>(sp, Constants.TVChannelsFileUrl);
+    });
+}
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
+app.UseCors(builder => builder.AllowAnyOrigin()
+                                .AllowAnyHeader()
+                                .AllowAnyMethod());
+
+
+
+app.UseRouting().UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
+await app.RunAsync();

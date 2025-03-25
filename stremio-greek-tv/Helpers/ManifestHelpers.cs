@@ -1,10 +1,9 @@
-﻿using Newtonsoft.Json;
-using stremio_greek_tv.Models;
+﻿using stremio_greek_tv.Models;
 using System.IO;
 using System;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using System.Linq;
+using System.Text.Json;
 
 namespace stremio_greek_tv.Helpers
 {
@@ -21,7 +20,7 @@ namespace stremio_greek_tv.Helpers
             using (StreamReader r = new StreamReader(manifestPath))
             {
                 string json = r.ReadToEnd();
-                return JsonConvert.DeserializeObject<Manifest>(json);
+                return JsonSerializer.Deserialize<Manifest>(json);
             }
         }
 
